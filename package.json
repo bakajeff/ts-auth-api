@@ -16,12 +16,16 @@
   "devDependencies": {
     "@biomejs/biome": "1.5.3",
     "@types/node": "^20.11.5",
+    "husky": "^8.0.0",
     "lint-staged": "^15.2.0",
+    "prisma": "^5.8.1",
     "tsx": "^4.7.0",
-    "typescript": "^5.3.3",
-    "husky": "^8.0.0"
+    "typescript": "^5.3.3"
   },
-  "lint-staged": {
+  "dependencies": {
+    "@prisma/client": "5.8.1"
+  },
+	"lint-staged": {
     "*.ts": "pnpm run lint"
   }
 }
