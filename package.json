@@ -15,6 +15,7 @@
   "license": "ISC",
   "devDependencies": {
     "@biomejs/biome": "1.5.3",
+    "@types/bcryptjs": "^2.4.6",
     "@types/node": "^20.11.5",
     "husky": "^8.0.0",
     "lint-staged": "^15.2.0",
@@ -23,9 +24,10 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "@prisma/client": "5.8.1"
+    "@prisma/client": "5.8.1",
+    "bcryptjs": "^2.4.3"
   },
-	"lint-staged": {
+  "lint-staged": {
     "*.ts": "pnpm run lint"
   }
 }
