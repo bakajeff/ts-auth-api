@@ -8,7 +8,9 @@ interface IInput {
 	password: string;
 }
 
-export class SingUpUseCase {
+export class SignUpUseCase {
+	constructor(private readonly salt: number) {}
+
 	async execute({ email, name, password }: IInput): Promise<void> {
 		const accountAlreadyExists = await prismaClient.account.findUnique({
 			where: {
@@ -20,7 +22,7 @@ export class SingUpUseCase {
 			throw new AccountAlreadyExists();
 		}
 
-		const hashedPassword = await hash(password, 8);
+		const hashedPassword = await hash(password, this.salt);
 
 		await prismaClient.account.create({
 			data: {
