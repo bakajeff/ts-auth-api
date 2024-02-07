@@ -22,7 +22,7 @@ export class SignInController implements IController {
 			});
 
 			return {
-				statusCode: 204,
+				statusCode: 200,
 				body: {
 					accessToken,
 				},
