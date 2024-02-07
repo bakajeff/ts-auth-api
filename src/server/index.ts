@@ -20,8 +20,15 @@ app.post("/sign-up", async (request, response) => {
 	return response.status(statusCode).json(body);
 });
 
-app.post("/sign-in", (request, response) => {
-	response.send("Hello World");
+app.post("/sign-in", async (request, response) => {
+	const signInUseCase = new SignInUseCase();
+	const signInController = new SignInController(signInUseCase);
+
+	const { statusCode, body } = await signInController.handle({
+		body: request.body,
+	});
+
+	return response.status(statusCode).json(body);
 });
 
 app.listen(3333, () => console.log("Server is running"));
