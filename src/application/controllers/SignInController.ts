@@ -1,4 +1,4 @@
-import { ZodError, z } from "zod";
+import { ZodError, ZodIssue, z } from "zod";
 import { IController, IRequest, IResponse } from "../interfaces/IController";
 
 import { InvalidCredentials } from "../errors/InvalidCredentials";
@@ -31,7 +31,9 @@ export class SignInController implements IController {
 			if (error instanceof ZodError) {
 				return {
 					statusCode: 400,
-					body: error.issues,
+					body: {
+						errors: error.issues,
+					},
 				};
 			}
 
